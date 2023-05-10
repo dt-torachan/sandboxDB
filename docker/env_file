@@ -1,0 +1,11 @@
+# MySQL
+# MYSQL_USER=root
+MYSQL_PASS=test1234
+MYSQL_ROOT_PASSWORD=test1234
+
+TZ=Asia/Tokyo
+
+# phpmyadmin
+PMA_ARBITRARY=1
+PMA_USER=root
+PMA_PASSWORD=test1234

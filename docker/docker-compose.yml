@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    build:
+      context: ".."
+      dockerfile: "./docker/Dockerfile_mysql"
+    tty: true
+    stdin_open: true
+    cap_add:
+      - ALL
+    ports:
+      - "3306:3306"
+    env_file: env_file
+    volumes:
+      - ../no/mysql/data:/var/lib/mysql
+      - ../sql:/var/www/sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+    links:
+      - db
+    ports:
+      - 8008:80
+    volumes:
+      - ../no/phpmyadmin/sessions:/sessions
